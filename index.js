@@ -26,12 +26,12 @@ function validateForm() {
         return false;
     }
 
-    let telRegex = /^[0-9]{10}$/;
+    let telRegex = /^[0-9]{10,12}$/;
     if (!telRegex.test(telefono)) {
         Swal.fire({
             title: 'Oops...',
             icon: 'error',
-            text: 'El teléfono debe tener 10 dígitos',
+            text: 'El teléfono debe tener de  10 a 12 dígitos',
             confirmButtonText: 'Ok'
         })
         return false;
