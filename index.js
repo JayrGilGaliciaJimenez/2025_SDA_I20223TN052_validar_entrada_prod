@@ -26,17 +26,16 @@ function validateForm() {
         return false;
     }
 
-    let telRegex = /^[0-9]{10,12}$/;
-    if (!telRegex.test(telefono)) {
+    let telRegex = /^[0-9 ]{10,12}$/;
+    if (!telRegex.test(telefono.replace(/\s+/g, ''))) {
         Swal.fire({
             title: 'Oops...',
             icon: 'error',
-            text: 'El teléfono debe tener de  10 a 12 dígitos',
+            text: 'El teléfono debe tener de 10 a 12 dígitos.',
             confirmButtonText: 'Ok'
         })
         return false;
-    }
-    
+    }    
 
     if(contacto.length > 32 ){
         Swal.fire({
@@ -58,6 +57,8 @@ function validateForm() {
         })
         return false;
     }
+    
+
     
     return true;
 }
